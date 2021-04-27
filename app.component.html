@@ -1,0 +1,130 @@
+<div class="content"><span>reactive app is running!</span> 
+  <div class="container mt-2 p-5 bg-secondry text-white">
+ <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+  
+  <div>
+    <label>
+      First Name:
+      <input formControlName="firstName" placeholder="Your first name">
+    </label>
+    <div><span class="text-danger" 
+    *ngIf="myForm.get('firstName').invalid && (myForm.get('firstName').dirty || myForm.get('firstName').touched)">
+      Please provide a First Name**
+    </span>
+  </div>
+  </div>
+
+  <div>
+    <label>
+      Last Name:
+      <input formControlName="lastName" placeholder="Your last name">
+    </label>
+    <div><span class="text-danger" 
+    *ngIf="myForm.get('lastName').invalid && (myForm.get('lastName').dirty || myForm.get('lastName').touched)">
+      Please provide a Last Name**
+    </span>
+  </div>
+  </div>
+
+  <div>
+    <label>
+      Email:
+      <input formControlName="email" placeholder="Your email">
+    </label>
+    <div><span class="text-danger"  *ngIf="myForm.get('email').invalid && (myForm.get('email').dirty || myForm.get('email').touched)">
+      provide a valid email address**
+    </span>
+    </div>
+  </div>
+
+  <div>
+    <label>
+      Phone Number:
+      <input formControlName="phoneNumber" placeholder="Your phoneNumber">
+    </label>
+    <div><span class="text-danger" *ngIf="myForm.get('phoneNumber').invalid && (myForm.get('phoneNumber').dirty || myForm.get('phoneNumber').touched)">
+      phone Number must be at least 9 characters long**
+    </span>
+  </div>
+  </div>
+
+
+
+  <div>
+    <label>Age:</label>
+     <input formControlName='age' type="number" placeholder="Enter Age" >
+     <div>
+     <span class="text-danger" *ngIf="myForm.get('age').invalid && (myForm.get('age').dirty || myForm.get('age').touched)">
+      Age Required**
+    </span>
+  </div>
+  </div>
+
+        <div>
+            <label for="gender">Gender:</label>
+            <div>
+              <input id="male" type="radio" value="male" name="gender"formControlName="gender">
+              <label for="male">Male</label>
+           </div>
+  
+           <div>
+              <input id="female" type="radio" value="female" name="gender" formControlName="gender">
+              <label for="female">Female</label>
+           </div>
+          
+          <div>
+           <span class="text-danger" *ngIf="myForm.get('gender').invalid && (myForm.get('gender').dirty || myForm.get('gender').touched)">
+            Age Required**
+          </span>
+         </div>         
+      </div>
+
+
+<div>
+  <label> Date of Birth
+  </label>
+    <input type="date" formControlName="dob">
+<div>
+  <span class="text-danger"  *ngIf="myForm.get('dob').invalid && (myForm.get('dob').dirty || myForm.get('dob').touched)">
+    Date of Birth required**
+  </span>
+</div>
+</div>
+
+
+<div>
+<label for="country">Country</label>
+ 
+<select id="country" formControlName="country" >
+
+<option>India</option>
+<option>United States of America</option>
+<option>Australia</option>
+<option>U.K</option>
+<option>Canada</option>
+</select>
+ 
+ <div>
+ <span class="text-danger"  *ngIf="myForm.get('country').invalid && (myForm.get('country').dirty || myForm.get('country').touched)">
+    Country is required**
+  </span>
+</div>
+</div>
+
+
+<div class="form-check">
+<input class="form-check-input" formControlName="check" type="checkbox"/>
+<label class="form-check-label">Terms and Conditions</label>
+
+ <div>
+ <span class="text-danger"  *ngIf="myForm.get('check').invalid && (myForm.get('check').dirty || myForm.get('check').touched)">
+    checkbox is required**
+  </span>
+</div>
+</div>
+
+
+  <button type="submit" [disabled]="myForm.invalid">Send</button>
+</form>
+</div>
+</div>
